@@ -24,7 +24,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser('9F2E73DEB5DF6'));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/images', express.static(__dirname + '/Images'));
 
 const authController = require('./controllers/authController')
 
