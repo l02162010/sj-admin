@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+  sj-admin-02:
+    image: sj-admin-02
+    build: .
+    environment:
+      NODE_ENV: production
+      PORT: 3002
+    ports:
+      - 3009:3002
+    volumes:
+      - ~/test-volums:/usr/src/app/public/img
+        
