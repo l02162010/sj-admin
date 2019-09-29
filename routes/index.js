@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer')
 const fs = require('fs');
-const upload = multer({ dest: '../public/img/'});
+const upload = multer({ dest: __dirname +'/new/'});
 const type = upload.single('recfile');
 const videoController = require('../controllers/videoController')
 const imageController = require('../controllers/imageController')
@@ -47,6 +47,7 @@ router.post('/video', type, async (req, res) => {
     let imageRes = await imageController.addImage(imgData)
     if(imageRes){
       data.imgId = imageRes._id
+      fs.unlinkSync(req.file.path)
     }
     // let file = path.join(__dirname, '../public/img/') + req.file.filename;
     // fs.rename(req.file.path, file, function(err) {
