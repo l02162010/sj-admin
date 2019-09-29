@@ -79,6 +79,7 @@ router.get('/image/:imgId',async (req, res) => {
   }
   let imageRes = await imageController.getImageById(data)
   if(imageRes){
+    res.set('Content-Security-Policy', 'upgrade-insecure-requests');
     res.contentType(imageRes.contentType);
     res.send(imageRes.source);
   }else{
