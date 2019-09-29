@@ -28,7 +28,7 @@ router.get('/video', async (req, res) => {
       youtubeId: f.youtubeId,
       createdAt: f.createdAt,
       imgId: f.imgId,
-      imgUrl: `${req.protocol}://${req.hostname}/image/${f.imgId}`
+      imgUrl: `http://${req.hostname}/image/${f.imgId}`
     }
   })
   res.render('video', { title, pageTitle: '影片設定', list });
